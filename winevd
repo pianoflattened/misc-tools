@@ -1,0 +1,33 @@
+#!/bin/bash
+
+res="640x480"
+
+function help() {
+	echo "Usage: winevd [OPTION ...] ARGS ..."
+	echo
+	echo "runs a wine command in a virtual desktop"
+	echo
+	echo "OPTIONS:"
+	echo "	-r RESOLUTION	resolution of virtual desktop (default: '$res')"
+	echo "	-h 				display this text and exit"
+}
+
+while getopts ":r:w:h" option; do
+	case "${option}" in
+		r)
+			res="$OPTARG"
+			;;
+		h)
+			help
+			exit 0
+			;;
+			
+		:)
+			echo "$bin: option -$OPTARG requires an argument"
+			echo 
+			exit 1
+			;;
+	esac
+done
+
+wine explorer /desktop=WINEVD,$res $@
