@@ -6,3 +6,6 @@ shortens the wine virtual desktop command, only need to specify resolution. uses
 
 #### makedesktop
 silly game exe -> install in `$HOME/.local/games` and make a desktop item in `$HOME/.local/share/applications`
+
+#### randrym
+`randrym [number]` spits out page number (pg size 25) + page item #
